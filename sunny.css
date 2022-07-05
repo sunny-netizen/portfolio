@@ -1,45 +1,62 @@
-  
-
+/* Sections */
   body {
-    background-color: #ff6969;
+    background-color: rgb(0, 157, 174);
   }
 
-
+/* Text */
   h1 {
-    color: #fff1e1;
+    color: rgb(113, 223, 231);
     text-align: center;
+    font-size: 80px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    line-height: 0px;
+    margin-top: 100px;
   }
 
   h2 {
-    color: #ffd9c3;
+    color: rgb(194, 255, 249);
     text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: 3%;
+    margin-bottom: 3%;
   }
-
 
   p {
-    color: #ffc9b4;
+    color: rgb(255, 230, 82);
     text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
+  a {
+    color: rgb(255, 230, 82);
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+/* Divs */
   #div_viz {
     display: table;
     margin: auto;
-    height: 300px;
-    width: 605px;
+    height: 60%;
+    width: 80%;
   }
 
-  .div_img {
+  #div_exomap {
     display: table-cell;
     margin: auto;
-    padding: 8%;
-    background-color: #f99090;
+  }
+
+  #div_energy {
+    display: table-cell;
+    margin: auto;
   }
 
   img {
+    display: flex;
     border-radius: 30%; 
     height: 200px;
     width: 200px;
-    box-shadow: 0px 0px 0px 0px #ff6969 inset;
+    margin: auto;
   }
 
   img:hover {
@@ -50,4 +67,8 @@
   
   /*
   https://www.color-hex.com/color-palette/41821 
+  https://colorhunt.co/palette/54bab918978fe9dac1f7ecde
+  https://colorhunt.co/palette/005555069a8ea1e3d8f7ff93
+  https://colorhunt.co/palette/009dae71dfe7c2fff9ffe652
+  box-shadow: 0px 0px 0px 0px #ff6969 inset;
   */
