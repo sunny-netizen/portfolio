@@ -1,0 +1,53 @@
+  
+
+  body {
+    background-color: #ff6969;
+  }
+
+
+  h1 {
+    color: #fff1e1;
+    text-align: center;
+  }
+
+  h2 {
+    color: #ffd9c3;
+    text-align: center;
+  }
+
+
+  p {
+    color: #ffc9b4;
+    text-align: center;
+  }
+
+  #div_viz {
+    display: table;
+    margin: auto;
+    height: 300px;
+    width: 605px;
+  }
+
+  .div_img {
+    display: table-cell;
+    margin: auto;
+    padding: 8%;
+    background-color: #f99090;
+  }
+
+  img {
+    border-radius: 30%; 
+    height: 200px;
+    width: 200px;
+    box-shadow: 0px 0px 0px 0px #ff6969 inset;
+  }
+
+  img:hover {
+    transform: scaleX(-1);
+  }
+  
+
+  
+  /*
+  https://www.color-hex.com/color-palette/41821 
+  */
