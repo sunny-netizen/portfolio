@@ -1,11 +1,11 @@
 /* Sections */
   body {
-    background-color: rgb(0, 157, 174);
+    background-color: white;
   }
 
 /* Text */
   h1 {
-    color: rgb(113, 223, 231);
+    color: black;
     text-align: center;
     font-size: 80px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -14,31 +14,40 @@
   }
 
   h2 {
-    color: rgb(194, 255, 249);
+    color: grey;
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-top: 3%;
     margin-bottom: 3%;
   }
 
-  p {
-    color: rgb(255, 230, 82);
-    text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
-
-  a {
-    color: rgb(255, 230, 82);
+  #links {
+    color: grey;
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
 /* Divs */
+/* #div_viz */
+  a {
+    color: black;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  p {
+    color: black;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
   #div_viz {
     display: table;
     margin: auto;
-    height: 60%;
+    height: 1000px;
     width: 80%;
+    background-color: orange;
+    border-radius: 50%; 
   }
 
   #div_exomap {
@@ -53,16 +62,27 @@
 
   img {
     display: flex;
-    border-radius: 30%; 
+    border: 5px solid #555;
+    border-radius: 50%; 
     height: 200px;
     width: 200px;
-    margin: auto;
+    margin: 7% auto auto auto;
   }
 
   img:hover {
     transform: scaleX(-1);
   }
+
+/* #div_research */
   
+#div_research {
+  display: table;
+  margin: auto;
+  height: 1000px;
+  width: 80%;
+  background-color: lightskyblue;
+  border-radius: 50%; 
+}
 
   
   /*
