@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityofLondon</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/london.css">
+
+    <!--
+    <style>
+        main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            display: flex;
+            margin-top: 70px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        p {
+            display: flex;
+            margin-top: 0px;
+            margin-bottom: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 100%;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .dot {
+            display: none;
+        }
+    </style>
+    -->
+    <style>
+        /*
+        h2,p {
+            margin-left: 200px
+            margin-bottom: 200px
+        }
+
+        div {
+            display: flex;
+        } */
+
+        .svg-container { 
+            display: block;
+            align-items: center;
+            /*
+            position: relative;
+            width: 100%;
+            height: 50%; 
+            padding-bottom: 10%; 
+            overflow: hidden; 
+            vertical-align: middle;
+            */
+        }
+
+        h2, text {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+
+
+
+    </style>
+
+</head>
+
+
+<body>
+    <!--
+        
+    <div style="margin-bottom: -4em">
+        <span class="dot" style="top:21em; left:32.1em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:33em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:34.55em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:36.55em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:37em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        
+        <span class="dot" style="top:21em; left:38em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:39.3em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:40.65em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:43.1em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:44em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        
+        <span class="dot" style="top:21em; left:44.2em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:44.9em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:45em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:45.7em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:46.7em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        
+        <span class="dot" style="top:21em; left:47.5em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:49.2em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:50.4em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:52.4em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:54em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        
+        <span class="dot" style="top:21em; left:56.8em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:56.8em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:56.8em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:56.8em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:56.8em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        
+        <span class="dot" style="top:21em; left:56.8em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:56.8em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:56.8em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+        <span class="dot" style="top:21em; left:56.8em; position:absolute; width:0.75em; height:0.75em; border-radius:50%; background-color:red;"></span>
+
+        <img src="figs/lond_lcc.png" style="width:40%;">
+    </div>
+    <div>
+        <img class="mySlides" src="figs/lon_1.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_4.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_5.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_10.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_15.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_17.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_19.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_22.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_25.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_27.png" style="width:100%">
+
+        <img class="mySlides" src="figs/lon_32.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_35.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_41.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_44.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_45.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_47.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_48.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_50.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_53.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_55.png" style="width:100%">
+        
+        <img class="mySlides" src="figs/lon_57.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_63.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_65.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_68.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_74.png" style="width:100%">
+
+        <img class="mySlides" src="figs/lon_75.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_80.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_85.png" style="width:100%">
+        <img class="mySlides" src="figs/lon_95.png" style="width:100%">
+    </div>
+    <script>
+            
+            var myIndex = 0;
+            carousel();
+            
+            function carousel() {
+              var i;
+              var x = document.getElementsByClassName("mySlides");
+              var y = document.getElementsByClassName("dot");
+              for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+                y[i].style.display = "none";  
+              }
+
+              myIndex++;
+              if (myIndex > x.length) {
+                myIndex = 1
+              }  
+
+              x[myIndex-1].style.display = "block";  
+              y[myIndex-1].style.display = "block";  
+              setTimeout(carousel, 200); // Change image every 2 seconds
+            } 
+    </script>
+    <p>Percolation threshold shown: <span style="color:red">red word</span> in it.</p>
+-->
+
+
+<div style="padding:3%; background-color: lightseagreen;">
+    <h2>Percolation Analysis: City of London </h2>
+</div>
+
+
+
+    <script>
+
+        // set the dimensions and margins of the graph
+        var margin = { 
+            top: 0.2 * window.innerHeight,
+            right: 0.1 * window.innerWidth,
+            bottom: 0.1 * window.innerHeight,
+            left: 0.25 * window.innerWidth,
+        };
+        var width = 0.75 * window.innerWidth //- margin.left - margin.right; //window.innerWidth
+        var height = 0.75 * window.innerHeight //- margin.top - margin.bottom; //window.innerHeight
+        var awidth = width - margin.right - margin.left
+        var aheight = height - margin.top - margin.bottom
+
+        // append the svg object to the body of the page
+        var svg = d3.select("body")
+            .append("div")
+            .attr("id", "#lcc")
+            .classed("svg-container", true) //container class to make it responsive
+            //.style("background-color",'green')
+            .append("svg")
+            .classed("svg-content", true)
+            //.style("background-color",'lightgreen')
+            .attr("width", width) //+ margin.left + margin.right)
+            .attr("height", height) //+ margin.top + margin.bottom)
+            //.attr("preserveAspectRatio", "xMinYMin meet")
+            //.attr("viewBox", [0, 0, width, height])
+            //.append("g")
+            //.attr("transform","translate(" + margin.left + "," + margin.top + ")");
+                
+
+        // append the svg object to the body of the page
+        var svg2 = d3.select("body")
+            .append("div")
+            .attr("id", "#roads")
+            .classed("svg-container", true) //container class to make it responsive
+            .style("background-color",'lightblue')
+            .append("svg")
+            .classed("svg-content", true)
+            //.style("background-color",'lightblue')
+            .attr("width", width) //+ margin.left + margin.right + 300)
+            .attr("height", height)
+            //.attr("preserveAspectRatio", "xMinYMin meet")
+            //.attr("viewBox", [0, 0, width, height])
+            //.append("g")
+            //.attr("transform","translate(" + (margin.left-350) + "," + 0 + ")");
+            
+        
+        
+        d3.csv("../data/clusters_info_p.csv").then(function (data) {
+                //console.log(loadedData);
+                //loadedData.forEach(function(d) {
+                //    console.log(d.threshold_p);
+                //});
+
+                var thresholdPValues = data.map(function(d) { return +d.threshold_p; });
+                var maxThresholdP = d3.max(thresholdPValues);
+                console.log("Maximum threshold_p: " + maxThresholdP);
+
+                var lccsize = data.map(function(d) { return +d.LCC_size; });
+                var maxlccsize = d3.max(lccsize);
+                console.log("Maximum LCC_size: " + maxlccsize);
+
+                // Add X axis
+                var x = d3.scaleLinear()
+                    .domain([0, maxThresholdP])
+                    .range([0, awidth]);
+                svg.append("g")
+                    .attr("transform", "translate(" + margin.left + "," + (height - margin.bottom) + ")")
+                    .call(d3.axisBottom(x));
+
+                // Add Y axis
+                var y = d3.scaleLinear()
+                    .domain([0, maxlccsize])
+                    .range([aheight, 0]);
+                svg.append("g")
+                    .attr("transform", "translate(" + margin.left + "," + (margin.top) + ")")
+                    .call(d3.axisLeft(y));
+
+                // Add title
+                svg.append("text").text("Evolution of the Largest Cluster Size")
+                    .attr("x", margin.left + awidth/2)
+                    .attr("y", 0.75* margin.top)
+                    .style("text-anchor", "middle")
+                    .style("font-size", "1.8vw")
+                    .style("fill", "black");                   
+
+                // Add X axis title
+                svg.append("text").text("Percolation Threshold (m)")
+                    .attr("x", margin.left + awidth/2)
+                    .attr("y", height - margin.bottom/3)
+                    .style("text-anchor", "middle")
+                    .style("font-size", "1.3vw")
+                    .style("fill", "black");
+
+                // Add Y axis title
+                svg.append("text").text("Largest Cluster Size")
+                    .attr("x", margin.left/2)
+                    .attr("y", margin.top + aheight/2.1)
+                    .style("text-anchor", "middle")
+                    .style("font-size", "1.3vw")
+                    .style("fill", "black");
+                svg.append("text").text("(Number of Road Intersections)")
+                    .attr("x", margin.left/2)
+                    .attr("y", margin.top + aheight/1.8)
+                    .style("text-anchor", "middle")
+                    .style("font-size", "0.9vw")
+                    .style("fill", "black");
+                
+                
+                // Add dots
+                svg.append('g')
+                    .selectAll("dot")
+                    .data(data)
+                    .enter()
+                    .append("circle")
+                    .attr("cx", function (d) { return margin.left + x(d.threshold_p); })
+                    .attr("cy", function (d) { return margin.top + y(d.LCC_size); })
+                    .attr("r", 2)
+                    .style("fill", "#69b3a2")
+
+                
+                let jumps = [1, 4, 5, 10, 15, 17, 19, 22, 25, 27, 
+                            32, 35, 41, 44, 45, 47, 48, 50, 53, 55, 
+                            57, 63, 65, 68, 74, 75, 80, 85, 95]
+
+                svg.append('g')
+                    .selectAll("vert")
+                    .data(jumps)
+                    .enter()
+                    .append("line")
+                    .style("stroke-width", 2)
+                    .style("stroke", "green")
+                    .style("opacity", "0.3")
+                    .style("fill", "none")
+                    .attr("y1", margin.top + aheight)
+                    .attr("y2", margin.top)
+                    .attr("x1", function(d) {return margin.left + x(d)}) 
+                    .attr("x2", function(d) {return margin.left + x(d)}) 
+
+                function animate() {
+                    svg.append("line")
+                        .style("stroke-width", 3)
+                        .style("stroke", "orange")
+                        .style("fill", "none")
+                        .attr("y1", margin.top + aheight)
+                        .attr("y2", margin.top)
+                        .attr("x1", function(d) {return margin.left + x(jumps[0])}) 
+                        .attr("x2", function(d) {return margin.left + x(jumps[0])}) 
+                        .transition()
+                        .duration(1500)
+                        .on("end", function() {
+                            jumps.push(jumps.shift());
+                            this.remove();
+                            animate();
+                        })
+                    
+                    svg2.select("image").remove();
+                    svg2.append("image")
+                        .attr("xlink:href", "../images/lon_"+jumps[0]+".png")
+                        .attr("width", "100%")
+                        .attr("height", "100%")
+                        .attr("x", 0)
+                        .attr("y", 0)
+                        .on("end", function() {
+                            jumps.push(jumps.shift());
+                            animate();
+                        })
+
+                    svg2.select("text").remove();
+                    svg2.append("text")
+                        .text("Percolation threshold: "+jumps[0]+"m")
+                        .style("text-anchor", "middle")
+                        .style("font-size", "1.5vw")
+                        .attr("x", width/2)
+                        .attr("y", margin.top/2)
+                        .on("end", function() {
+                            jumps.push(jumps.shift());
+                            animate();
+                        })                        
+                    
+                        
+                    }
+
+                animate();
+                
+            });
+            
+        
+
+
+
+
+
+        //d3.select(window).on("resize", resize);
+
+        //percolate();
+
+
+       
+
+/*
+
+
+
+
+                */
+
+            
+            //.catch(function (error) {
+              //  console.error(error);
+            //});
+
+        /*
+        d3.csv("../data/clusters_info_p.txt", function (error, data) {
+            if (error) throw error;
+            console.log(data);
+
+            // Add X axis
+            var x = d3.scaleLinear()
+                .domain([0, 4000])
+                .range([0, width]);
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+
+            // Add Y axis
+            var y = d3.scaleLinear()
+                .domain([0, 500000])
+                .range([height, 0]);
+            svg.append("g")
+                .call(d3.axisLeft(y));
+
+            // Add dots
+            svg.append('g')
+                .selectAll("dot")
+                .data(data)
+                .enter()
+                .append("circle")
+                .attr("cx", function (d) { return x(d.LCC_size); })
+                .attr("cy", function (d) { return y(d.LCC_size); })
+                .attr("r", 1.5)
+                .style("fill", "#69b3a2")
+
+        });
+        */
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
