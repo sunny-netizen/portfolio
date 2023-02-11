@@ -9,12 +9,14 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
+<div id="content"></div> 
 <div id="contact">
     <h1>Data<br>Visualization</h1>
     <p>sunny.yun.zhao@gmail.com &nbsp<br>https://github.com/sunny-netizen &nbsp</p>
 </div>      
-<div id="content">        
-</div> 
+<a href="https://www.example.com">
+    <button>CV</button>
+  </a>
 <script>
     //data for images
     var nodes = [
@@ -54,10 +56,6 @@
         "category":4,
         "text":"Rising Energy Prices.<br><br><br>This exploration of factors influencing energy prices was a group project "+
         "from my masters program. I created the pages under 'Energy and Growth' with D3.js."},
-
-
-
-
     ]
 
     //create divs for text
@@ -120,6 +118,8 @@
         .on("mouseover", function(event, d) {
             d3.select(this)
                 //.style("mix-blend-mode", "hard-light")
+                .transition()
+                .duration(500)
                 .style("mix-blend-mode", "color-dodge")
                 .style("left", "11%");
             textDivs.style("opacity", .9)
@@ -132,10 +132,10 @@
                 .style("mix-blend-mode", null)
                 //.style("mix-blend-mode", "multiply")
                 .style("left", "10%");
-            textDivs
-                .transition()
-                .duration(1500)
-                .style("opacity", 0);  
+            //textDivs                
+                //.transition()
+                //.duration(1500)
+                //.style("opacity", 0);  
         })
         .on("click", function(event, d) {
             window.open(d.url)
