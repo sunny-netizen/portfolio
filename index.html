@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,12 +7,179 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>SunnyHello</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
-
 </head>
-
 <body>
+<div id="contact">
+    <h1>Data<br>Visualization</h1>
+    <p>sunny.yun.zhao@gmail.com &nbsp<br>https://github.com/sunny-netizen &nbsp</p>
+</div>      
+<div id="content">        
+</div> 
+<script>
+    //data for images
+    var nodes = [
+        {"image": "images/button-energy.png", 
+        "url":"https://ankur1995.github.io/Group6DigitalViz/#sunny1",
+        "category":3,
+        "text":"Rising Energy Prices.<br><br><br>This was a group project from my masters program. "+
+        "I created the pages under 'Energy and Growth'."},
 
-<!--     
+        {"image": "images/tree.png", 
+        "url": "html/tree.html",
+        "category":1,
+        "text": "Hierarchical Tree of Percolation Clusters.<br><br><br>This is a figure from my dissertation, "+
+        "depicting the mergers of percolation clusters at key thresholds from the percolation analysis of mainland Europe."+
+        "The largest cluster in the dendrogram estimates the giant cluster of the system."},
+
+        {"image": "images/button-exomap.png", 
+        "url": "https://sunny-netizen.github.io/exomap/",
+        "category":2,
+        "text":"ExoMap.<br><br><br>This celestial map shows the number of confirmed exoplanets around stars "+
+        "in western constellations.<br><br>This was originally for a project in my masters program. "+
+        "For a full description, click <a href='https://github.com/sunny-netizen/exomap'>here</a>."},
+
+        {"image": "images/cityoflondon.png", 
+        "url": "html/london.html",
+        "category":0,
+        "text": "Percolation Analysis on the City of London.<br><br><br>The City of London, also known as the Square Mile, "+
+        "is located in central Greater London. It was the site of early London, or Londinium, Roman London.<br><br>"+
+        "I visualize a percolation process on the modern road network of the City of London. As the threshold (for road length) "+
+        "increases, the size of percolation clusters grow until they merge into a giant cluster.<br><br>The code is similar "+
+        "to what I used in my dissertation."}
+    ]
+
+    //create divs for text
+    var textDivs = d3.select("body").append("div")
+        .style("width", "30%")
+        .style("position", "absolute")
+        .style("font-size", "1em")
+        .style("opacity", 0);
+        
+    //create divs for images
+    var imageDivs = d3.select("body")
+        .selectAll("div.imaged")
+        .data(nodes)
+        .enter()
+        .append("div.imaged");
+    
+    //styling image divs
+    imageDivs
+        .style("width", "40%")
+        .style("height", "40%")
+        .style("position", "absolute")
+        .style("left", "10%")
+        .style("top", d => 25 * d.category + 15 + "em")
+        .style("background-image", d => "url(" + d.image + ")")
+        .style("background-size", "cover")
+        //.style("mix-blend-mode", "multiply")
+        //.style("opacity", "0.5")
+        .style("z-index", "30");
+
+        /* Keyword values 
+        mix-blend-mode: normal;
+        mix-blend-mode: multiply;
+        mix-blend-mode: screen;
+        mix-blend-mode: overlay;
+        mix-blend-mode: darken;
+        mix-blend-mode: lighten;
+        mix-blend-mode: color-dodge;
+        mix-blend-mode: color-burn;
+        mix-blend-mode: hard-light;
+        mix-blend-mode: soft-light;
+        mix-blend-mode: difference;
+        mix-blend-mode: exclusion;
+        mix-blend-mode: hue;
+        mix-blend-mode: saturation;
+        mix-blend-mode: color;
+        mix-blend-mode: luminosity;
+        */
+
+        /* Global values 
+        mix-blend-mode: inherit;
+        mix-blend-mode: initial;
+        mix-blend-mode: revert;
+        mix-blend-mode: revert-layer;
+        mix-blend-mode: unset;
+        */
+
+    // event handling
+    imageDivs
+        .on("mouseover", function(event, d) {
+            d3.select(this)
+                //.style("mix-blend-mode", "hard-light")
+                .style("mix-blend-mode", "color-dodge")
+                .style("left", "11%");
+            textDivs.style("opacity", .9)
+                .html(d.text)  
+                .style("left", "55%")     
+                .style("top", 25 * d.category + 15 + "em");  
+        })
+        .on("mouseout", function(event, d) {
+            d3.select(this)
+                .style("mix-blend-mode", null)
+                //.style("mix-blend-mode", "multiply")
+                .style("left", "10%");
+            textDivs
+                .transition()
+                .duration(2000)
+                .style("opacity", 0);  
+        })
+        .on("click", function(event, d) {
+            window.open(d.url)
+        });
+    /* 
+    var xCenter = [200, 500, 800, 1000];
+    //var yCenter = [400, 50, 500, 100];
+    var yCenter = [30, 300, 600, 900];
+    var simulation = d3.forceSimulation(nodes)
+        //.force('charge', d3.forceManyBody().strength(-205))
+        //.force('center', d3.forceCenter(width / 2, height / 3))
+        //.force('x', d3.forceX().x(function(d) {return xCenter[d.category];}))
+        .force('x', d3.forceX().x(function(d) {return 200;}))
+        .force('y', d3.forceY().y(function(d) {return yCenter[d.category];}))
+        //.alpha(1)
+        .alpha(0.1)
+        .on('tick', ticked)
+    */
+    /*
+    function ticked() {
+        d3.select('svg')
+            .selectAll('image') //
+            .data(nodes)
+            .join('svg:image')
+            .attr("xlink:href", d=>d.image)
+            .attr("x", d => d.x) //200
+            .attr("y", d => d.y + 150) //300
+            .attr('width', 250)
+            .attr('height', 250) 
+            //.attr("mask", "url(#mask)")
+            .on("mouseover", function(event, d) {
+                d3.select(this)
+                    //.style('filter','blur')
+                    .style("mix-blend-mode", "Difference");
+                d3.select("#tooltip")
+                    .html('hello'+ d.image)
+                    .style("display", "block")
+                    .attr("y", yCenter[d.category])
+                    .attr("x", "300")
+            })
+            .on("mouseout", function(event, d) {
+                d3.select(this)
+                .style("mix-blend-mode", null);
+                d3.select("#tooltip")
+                    .style("display", "none")
+                    
+            })
+            .on("click", function(event, d) {
+                window.open(d.url)
+            });
+
+    
+        }
+    */
+    /*
+
+            <!--     
     <div id="div_viz">
 
         <div id="div_exomap">
@@ -58,117 +223,7 @@
 
     &emsp; &emsp;
     www.linkedin.com/in/sunnyyunzhao
--->
-<div id="container">
-    <div id="contact">
-        <h1>Spatial Visualisation</h1>
-        <p>sunny.yun.zhao@gmail.com<br>https://github.com/sunny-netizen</p>
-    </div>      
-
-    <div id="content">        
-        <svg width="300" height="300">
-        </svg>
-    </div> 
-
-    <div id="tooltip">
-        <p>hello</p>
-    </div>
-
-</div>
-
-    <script>
-        var width = 200, height = 300
-        var nodes = [
-            {"image": "button-energy.png", 
-            "blurb": "Group Project", 
-            "url":"https://ankur1995.github.io/Group6DigitalViz/#sunny1"},
-
-            {"image": "button-exomap.png", 
-            "blurb": "Skymap with Exoplanets", 
-            "url": "https://sunny-netizen.github.io/exomap/"},
-
-            {"image": "figs/cityoflondon.png", 
-            "blurb": "Percolation Analysis on the City of London", 
-            "url": "html/london.html"}
-
-        ]
-
-        
-        var simulation = d3.forceSimulation(nodes)
-            .force('charge', d3.forceManyBody().strength(-205))
-            .force('center', d3.forceCenter(width / 2, height / 3))
-            .alpha(1)
-            .on('tick', ticked)
-
-        
-
-
-        console.log(nodes)
-        function ticked() {
-            d3.select('svg')
-                .selectAll('image')
-                .data(nodes)
-                .join('svg:image')
-                .attr("xlink:href", d=>d.image)
-                .attr("x", d => d.x + 200)
-                .attr("y", d => d.y + 300)
-                .attr('width', 250)
-                .attr('height', 250) 
-                //.attr("mask", "url(#mask)")
-                .on("mouseover", function(event, d) {
-                    d3.select(this)
-                        //.style('filter','blur')
-                        .style("mix-blend-mode", "Difference");
-                    d3.select("#tooltip")
-                        .html('hello'+d.image)
-                        .style("display", "block")
-                })
-                .on("mouseout", function(event, d) {
-                    d3.select(this)
-                    .style("mix-blend-mode", null);
-                    d3.select("#tooltip")
-                        .style("display", "none")
-                        
-                })
-                .on("click", function(event, d) {
-                    window.open(d.url);
-                })
-
-            d3.select('svg')
-                .selectAll('circle')
-                .data(nodes)
-                .join('circle')
-                .attr('r', 130)
-                .attr('cx', function (d) {return d.x + 300})
-                .attr('cy', function (d) {return d.y + 420})
-                .attr('fill','none')
-                //.style("mix-blend-mode", "Difference");
-                .style("stroke", '#21325E')
-                .style("stroke-width", 130)
-            }
-
-
-
-                
-                    
-                
-
-        
-
-    </script>
-
+*/
+</script>
 </body>
-
 </html>
-
-
-
-
-<!--
-
-    
-    sunny.yun.zhao@gmail.com
-    
-    
-
--->
