@@ -20,7 +20,7 @@ p, h1 {
 }
 
 h1 {
-  font-size: 2.5em;
+  font-size: 2.7em;
   font-weight: bolder;
   color: #17292b;
   color: black;
@@ -28,15 +28,18 @@ h1 {
   color: white;
   margin-bottom: -0.25em;
   opacity: 1;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.5em;
 }
 
 p {
   color: lightyellow;
   color: black;
   color: darkred;
+  color: #264653;
+  color: #195c54;
   opacity: 1;
   font-size: 1em; 
+  line-height: 120%;
 }
 
 #contact {
@@ -47,20 +50,38 @@ p {
   width: 51%;
   z-index: 10;
   background-color: rgba(255, 0, 0, 0.372);
+  background-color: #e76f51;
+  background-color: #f4a261;
+  padding: 2% 0;
 }
 
 #content {
   position: absolute;
   top: 0;
   left: 0;
-  height: 250%;
+  height: 280%;
   width: 100%;
   background-color: #5DA7AE;
-  background-image: linear-gradient(90deg, rgb(251, 160, 96), rgb(251, 251, 144));
+  /*background-image: linear-gradient(90deg, rgb(251, 160, 96), rgb(251, 251, 144));
+  background-image: linear-gradient(90deg, rgb(252, 154, 84), rgb(250, 240, 184));
+  background-image: linear-gradient(30deg,yellow, purple, yellow);
+  background-image: linear-gradient(0deg, white, slateblue, yellow, orange, green);
+  background-image: conic-gradient(teal, orange);*/
+  background-image: linear-gradient(90deg, #e9c46a, #2a9d8f)
+}
+
+.textDiv {
+  background-color: rgba(107, 81, 81, 0.249);
+  background-color: #e9c46a;
+  padding: 1%;
+  color: #264653;
 }
   
   
   /*
+  https://coolors.co/palette/264653-2a9d8f-e9c46a-f4a261-e76f51
+
+  
   https://www.color-hex.com/color-palette/41821 
   https://colorhunt.co/palette/54bab918978fe9dac1f7ecde
   https://colorhunt.co/palette/005555069a8ea1e3d8f7ff93
