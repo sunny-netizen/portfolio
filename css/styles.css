@@ -52,6 +52,7 @@ p {
   background-color: rgba(255, 0, 0, 0.372);
   background-color: #e76f51;
   background-color: #f4a261;
+  background-color: rgb(180, 180, 252);
   padding: 2% 0;
 }
 
@@ -84,8 +85,10 @@ button:hover {
   background-image: linear-gradient(90deg, rgb(252, 154, 84), rgb(250, 240, 184));
   background-image: linear-gradient(30deg,yellow, purple, yellow);
   background-image: linear-gradient(0deg, white, slateblue, yellow, orange, green);
-  background-image: conic-gradient(teal, orange);*/
-  background-image: linear-gradient(90deg, #e9c46a, #2a9d8f)
+  background-image: conic-gradient(teal, orange);
+  background-image: linear-gradient(90deg, #e9c46a, #2a9d8f);
+  background-image: linear-gradient(90deg, white, #2a9d7b);*/
+  background-color: rgb(169, 189, 170);
 }
 
 .textDiv {
