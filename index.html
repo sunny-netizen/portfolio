@@ -18,8 +18,6 @@
             background-image: linear-gradient(180deg, orange, blue);
             background-image: linear-gradient(290deg, orange, blue,red);
             background-image: linear-gradient(280deg, blue, green, red, orange ); */
-            
-        
         }
 
         .gallery {
@@ -28,12 +26,14 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            gap: 1%;
-            padding: 5%;
+            flex-wrap: wrap;
+            gap: 2vh 1vw;
+            margin-top: 10vh;
         }
 
         header {
-            width: 15%;
+            width: 210px;
+            height: fit-content;
             justify-content: center;
             background-color: darkorange;
             /*border-bottom: 4px solid yellow;*/
@@ -46,12 +46,13 @@
         }
 
         h1 {
-            text-transform: lowercase;
             text-align: right;
             color: #fff;
-            font-size: 2vw;
         }
 
+        p {font-size: larger;}
+/*
+        h1 {font-size: 2vw;}
         h2 {
             font-size: 1.7vw;
         }
@@ -63,16 +64,22 @@
         h3 {
             font-size: 1.2vw;
         }
-
-        .project {
-            width: 18%;
+*/
+        .Project {
+            width: 220px;
+            height: fit-content;
             background-color:silver;
             padding: 0% 1% 1% 1%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: left;
+            border: 0vw solid grey;
         }
 
         img {
             width: 100%;
-            height: 30%;
+            height: 20vh;
             object-fit: cover;
         }
 
@@ -81,6 +88,7 @@
             flex-direction: row;
             justify-content: left;
             align-items: flex-end;
+            flex-wrap: wrap;
             gap: 5%;
             font-size: small;
             text-align: right;            
@@ -95,10 +103,14 @@
             background-color: lightgoldenrodyellow;
             padding: 1%;
             font-weight: 600;
+            border: 0.1vw solid gold;
         }
 
         a {
-            color: black;
+            color: rgb(124, 69, 1);
+        }
+
+        .links {
         }
 
 
@@ -114,88 +126,81 @@
     <header>
         <p id="tools">D3 JS<br>Mapbox GL JS<br>Python<br>R</p>
         <h1>Sunny<br>Yun<br>Zhao</h1>
-        <p id="tools">
+        <p class="links">
             <!--<a href="sunny.yun.zhao@gmail.com">cv</a><br>-->
-            <a href="mailto:sunny.yun.zhao@gmail.com">email</a><br>
-            <a href="https://github.com/sunny-netizen">github</a><br>
-            <a href="www.linkedin.com/in/sunnyyunzhao">linkedin</a><br>
+            <a href="mailto:sunny.yun.zhao@gmail.com">Email</a><br>
+            <a href="https://github.com/sunny-netizen">Github</a><br>
+            <a href="www.linkedin.com/in/sunnyyunzhao">Linkedin</a><br>
     </header>
 
-    <div class="project">
+    <div class="Project">         
+        <h2>Percolation Analysis on the City of London</h2>
+        <img src="images/cityoflondon.png" alt="City of London">
         <div class="tools">
             <h3>D3 JS</h3>
-            <h3>Python/OSMnx</h3>
+            <h3>Python</h3>
         </div>
-        <img src="images/cityoflondon.png" alt="City of London">
-        <div>
-            <h2>Percolation Analysis on the City of London</h2>
-            <p>Modelling a percolation process on the modern road network of the City of London.</p>
-                <!--As the threshold (for road length) increases, the size of percolation clusters grow until
-                they merge into a giant cluster. The code is similar to what I used in my dissertation.
-            <p>Inside London, there is the City of London, also known as the Square Mile.
-                It was the site of the city called Londinium in Roman Times.</p>-->
-            <p class="links"><a href="html/london.html">project</a><br>
-                 <a href="https://github.com/sunny-netizen/portfolio/tree/main/html/london.html">code</a></p>
-
-        </div>
+        <p>Modelling a percolation process on the modern road network of the City of London.</p>
+            <!--As the threshold (for road length) increases, the size of percolation clusters grow until
+            they merge into a giant cluster. The Code is similar to what I used in my dissertation.
+        <p>Inside London, there is the City of London, also known as the Square Mile.
+            It was the site of the city called Londinium in Roman Times.</p>-->
+        <p class="links"><a href="html/london.html">Project</a><br>
+                <a href="https://github.com/sunny-netizen/portfolio/tree/main/html/london.html">Code</a></p>        
     </div>
 
-    <div class="project">
+    <div class="Project">
+        <h2>Hierarchy of Percolation Clusters</h2> 
+        <img src="images/tree.png" alt="Hierarchical Tree">
         <div class="tools">
             <h3>R</h3>
             <h3>D3 JS</h3>
         </div>
-        <img src="images/tree.png" alt="Hierarchical Tree">
-        <h2>Hierarchy of Percolation Clusters</h2> 
         <p>The mergers of percolation clusters modelled as a hierarchical tree.
-            From my master's <a href="https://github.com/sunny-netizen/SDSV/tree/main/Dissertation">dissertation</a> analysing the road network of mainland Europe.</p>
+            From my master's <a href="https://github.com/sunny-netizen/SDSV/tree/main/Dissertation">dissertation</a> 
+            analysing the road network of mainland Europe.</p>
         <!--The largest cluster in the dendrogram estimates the giant cluster of the system. -->
-        <p class="links"><a href="html/tree.html">project</a><br>
-             <a href="https://github.com/sunny-netizen/portfolio/tree/main/html/tree.html">code</a></p>
-
+        <p class="links"><a href="html/tree.html">Project</a><br>
+             <a href="https://github.com/sunny-netizen/portfolio/tree/main/html/tree.html">Code</a></p>
     </div>
     
-    <div class="project">
+    <div class="Project">        
+        <h2>Sustainability Educational Video</h2>
+        <img src="images/green.png" alt="Sustainability Education Video">
         <div class="tools">
             <h3>QGIS</h3>
             <h3>Mapbox GL JS</h3>
         </div>
-        <img src="images/green.png" alt="Sustainability Education Video">
-        <div>
-            <h2>Sustainability Educational Video</h2>
-            <p> A sequence of flyovers revealing the location of a Los Angeles area school district 
-                in the Ballona Creek Watershed. Ongoing collaboration.</p>
-            <p class="links"><a href="html/green.html">project</a><br>
-                 <a href="https://github.com/sunny-netizen/portfolio/tree/main/html/green.html">code</a></p>
-
-        </div>
+        <p> A sequence of flyovers revealing the location of a Los Angeles area school district 
+            in the Ballona Creek Watershed. Ongoing collaboration.</p>
+        <p class="links"><a href="html/green.html">Project</a><br>
+                <a href="https://github.com/sunny-netizen/portfolio/tree/main/html/green.html">Code</a></p>
     </div>
 
-    <div class="project">
+    <div class="Project">
+        <h2>Rising Energy Prices</h2>
+        <img src="images/button-energy.png" alt="">
         <div class="tools">
             <h3>D3 JS</h3>
             <h3>fullPage JS</h3>
         </div>
-        <img src="images/button-energy.png" alt="">
-        <h2>Rising Energy Prices</h2>
         <p>A group project exploring factors influencing energy prices.
             I created the 'Energy and Growth' section.</p>
-        <p class="links"><a href="https://ankur1995.github.io/Group6DigitalViz/#sunny1">project</a><br>
-             <a href="https://github.com/Ankur1995/Group6DigitalViz">code</a></p>
+        <p class="links"><a href="https://ankur1995.github.io/Group6DigitalViz/#sunny1">Project</a><br>
+             <a href="https://github.com/Ankur1995/Group6DigitalViz">Code</a></p>
 
     </div>
 
-    <div class="project">
+    <div class="Project">        
+        <h2>ExoMap</h2>
+        <img src="images/button-exomap.png" alt="">
         <div class="tools">
             <h3>D3 JS</h3>
             <h3>Mapbox GL JS</h3>
         </div>
-        <img src="images/button-exomap.png" alt="">
-        <h2>ExoMap</h2>
         <p>A celestial map showing the number of confirmed exoplanets around stars in western constellations.</p>
-        <p class="links"><a href="https://sunny-netizen.github.io/exomap/">project</a><br>
-             <a href="https://github.com/sunny-netizen/exomap">code</a></p>
-
+        <p class="links"><a href="https://sunny-netizen.github.io/exomap/">Project</a><br>
+             <a href="https://github.com/sunny-netizen/exomap">Code</a></p>
     </div>
     
 
@@ -221,7 +226,7 @@
                     "text": "Percolation Analysis on the City of London.<br><br><br>The City of London, also known as the Square Mile, " +
                         "is located in central Greater London. It was the site of early London, or Londinium, Roman London.<br><br>" +
                         "I visualize a percolation process on the modern road network of the City of London. As the threshold (for road length) " +
-                        "increases, the size of percolation clusters grow until they merge into a giant cluster.<br><br>The code is similar " +
+                        "increases, the size of percolation clusters grow until they merge into a giant cluster.<br><br>The Code is similar " +
                         "to what I used in my dissertation. Created with Python/matplotlib/osmnx."
                 },
 
@@ -239,7 +244,7 @@
                     "url": "https://sunny-netizen.github.io/exomap/",
                     "category": 3,
                     "text": "ExoMap.<br><br><br>This celestial map shows the number of confirmed exoplanets around stars " +
-                        "in western constellations.<br><br>This was originally for a project in my masters program. " +
+                        "in western constellations.<br><br>This was originally for a Project in my masters program. " +
                         "For a full description, click <a href='https://github.com/sunny-netizen/exomap'>here</a>. Created with Mapbox GL JS."
                 },
 
@@ -247,7 +252,7 @@
                     "image": "images/button-energy.png",
                     "url": "https://ankur1995.github.io/Group6DigitalViz/#sunny1",
                     "category": 4,
-                    "text": "Rising Energy Prices.<br><br><br>This exploration of factors influencing energy prices was a group project " +
+                    "text": "Rising Energy Prices.<br><br><br>This exploration of factors influencing energy prices was a group Project " +
                         "from my masters program. I created the pages under 'Energy and Growth' with D3.js."
                 },
             ]
